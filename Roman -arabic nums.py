@@ -1,14 +1,16 @@
-dict = {'I' : 1, 'V' : 5, 'X' : 10, 'L' : 50, 'C' : 100, 'D' : 500, 'M' : 1000}
-y = input('Enter value (capital letters only): ')
-x = list(y)
-
-m = 0
-for i in range(len(x) - 1):
-    if dict[x[i]] >= dict[x[i + 1]]:
-        m += dict[x[i]]
-    else:    
-        m = m - dict[x[i]]
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        dict = {'I' : 1, 'V' : 5, 'X' : 10, 'L' : 50, 'C' : 100, 'D' : 500, 'M' : 1000}
+       
         
-m += dict[x[len(x) - 1]]
+        m = 0
+        for i in range(len(list(s)) - 1):  
+            
+            if dict[list(s)[i]] >= dict[list(s)[i + 1]]:
+                m += dict[list(s)[i]]
+            else:    
+                m = m - dict[list(s)[i]]
+                        
+        m += dict[list(s)[len(list(s)) - 1]]
 
-print(m)
+        return m
